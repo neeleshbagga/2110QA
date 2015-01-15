@@ -1,0 +1,4 @@
+TF	Interfaces	1	Interfaces can be extended?	False	Interfaces are not classes, and therefore cannot be extended. They need to be implemented.
+TF	Recursion	1	Runtime of merge sort is n.log(n)?	True	Merging is done in linear time, and each time we divide n into half the size.
+TF	Interfaces	1	Interfaces can be implemented?	True	The keyword 'implements' is use by a class to implement an interface.
+TF	Trees	1	Searching through a balanced binary tree takes log(n) time?	True	A balanced binary tree with n nodes has a depth log(n). Hence the search takes a maximum time of log(n).

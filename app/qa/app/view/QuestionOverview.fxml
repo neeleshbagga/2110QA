@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="qa.app.view.QuestionOverviewController">
+   <children>
+      <SplitPane dividerPositions="0.29797979797979796" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TableView fx:id="topicTable" layoutX="17.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="firstNameColumn" prefWidth="75.0" text="Topic" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+               <children>
+                  <TextArea fx:id="textArea" editable="false" layoutX="14.0" layoutY="30.0" prefHeight="239.0" prefWidth="626.0" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                  <Button fx:id="next" layoutX="423.0" layoutY="306.0" mnemonicParsing="false" onAction="#nextPressed" text="Next" />
+                  <Button fx:id="submit" layoutX="352.0" layoutY="306.0" mnemonicParsing="false" onAction="#submitPressed" text="Submit" />
+                  <ChoiceBox fx:id="choiceBox" layoutX="135.0" layoutY="306.0" prefWidth="150.0" />
+                  <TextArea fx:id="explainArea" editable="false" layoutX="2.0" layoutY="414.0" prefHeight="212.0" prefWidth="626.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                  <Label layoutX="35.0" layoutY="311.0" text="Choose answer:" />
+                  <TextField fx:id="userSolCorrect" editable="false" layoutX="35.0" layoutY="367.0" prefHeight="26.0" prefWidth="256.0" />
+                  <Button fx:id="explain" layoutX="478.0" layoutY="306.0" mnemonicParsing="false" onAction="#explainPressed" text="View Explanation" />
+               </children></AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

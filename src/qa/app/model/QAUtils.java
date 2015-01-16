@@ -4,6 +4,9 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class QAUtils {
 
 	/**
@@ -46,7 +49,13 @@ public class QAUtils {
 			break;
 		}
 		case "MCQ": {
+			
+			String choices = splitArray[6];
+			ObservableList<String> choice = FXCollections.observableArrayList(choices.split(" "));
+			
+			question = new MCQ(qText, topic, level, new Answer(qAns,qExplain), choice); 
 			break;
+			
 		}
 		default: // FR
 

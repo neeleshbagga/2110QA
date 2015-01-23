@@ -1,21 +1,21 @@
 TF	Interfaces & Abstract Classes	1	Interfaces can be extended?	False	Interfaces are not classes, and therefore cannot be extended. They need to be implemented.
 TF 	Interfaces & Abstract Classes	2	A class that implements an interface I must also implement all superinterfaces of I.	True	This follows from the heirarchy.
 TF	Interfaces & Abstract Classes	1	Interfaces can be implemented?	True	The keyword 'implements' is use by a class to implement an interface.
-TF 	Interfaces & Abstract Classes 	2 	A non-abstract subclass of an abstract class A must implement all methods declared abstract in A?	True 	This is fundamentally how abstract classes work in Java. A non-abstract class extending an abstract class, has to implement all the methods declared as abstract.
-TF 	Interfaces & Abstract Classes 	1 	Abstract classes and interfaces cannot be instantiated.	True 	They need to be extended, and implemented respectively.
-TF 	Interfaces & Abstract Classes 	2 	In Java, a class may directly inherit from more than one abstract class.	False 	Java does not support multiple inheritance.
-TF 	Interfaces & Abstract Classes 	1 	In Java, an interface can extend multiple interfaces. 	True 	This is how interfaces work in Java.
-TF 	Interfaces & Abstract Classes 	2 	An abstract class can implement interfaces and can include static methods and constructors. 	True	Any class can implement interfaces, have static methods and constructors.
+TF 	Interfaces & Abstract Classes	2 	A non-abstract subclass of an abstract class A must implement all methods declared abstract in A?	True 	This is fundamentally how abstract classes work in Java. A non-abstract class extending an abstract class, has to implement all the methods declared as abstract.
+TF 	Interfaces & Abstract Classes	1 	Abstract classes and interfaces cannot be instantiated.	True 	They need to be extended, and implemented respectively.
+TF 	Interfaces & Abstract Classes	2 	In Java, a class may directly inherit from more than one abstract class.	False 	Java does not support multiple inheritance.
+TF 	Interfaces & Abstract Classes	1 	In Java, an interface can extend multiple interfaces. 	True 	This is how interfaces work in Java.
+TF 	Interfaces & Abstract Classes	2 	An abstract class can implement interfaces and can include static methods and constructors. 	True	Any class can implement interfaces, have static methods and constructors.
 
 TF	Types	2	A downcast can change the dynamic type of an object?	False	Up and downcasting merely allow the object to be viewed at compile time as a different static type. When you do a cast, nothing changes - not the dynamic type of the object, and not the static type of the expression.
 TF	Types	2	An upcast can change the dynamic type of an object?	False	Up and downcasting merely allow the object to be viewed at compile time as a different static type. When you do a cast, nothing changes - not the dynamic type of the object, and not the static type of the expression.
-TF 	Types 	2 	The static type of an expression is determined by whether the variables in it have been declared static?	False	The static type of an expression, is the type of the expression during compile time.
-TF 	Types 	1 	The static type of the expression (Integer)x is Integer. 	True 	Casting changes the static type during compile time.
-TF 	Types 	1 	Subclasses and subtypes are the same thing? 	False 	Can't compare apples and oranges. Subtypes, apply when we have expressions, and when the dynamic type of the RHS  is a subtype of the static type of the LHS.  
-TF 	Types 	3 	If class A inherits from abstract class B, and B implements an interface C, then a cast from an object of type A to an object of type C will always succeed.Example: A a; C c = (C) a; 	True 	Since, the type of class C is a subtype of the type of class A. Casting A to C would change the static type of A to te type of C, which is fine.
-TF 	Types 	2 	The statement “String s;” implies that the static type of s is String.	True 	Since we are just declaring a variable, the type associated is the static type. The dynamic type would be the type of the object when it is instantiated.
+TF 	Types	2 	The static type of an expression is determined by whether the variables in it have been declared static?	False	The static type of an expression, is the type of the expression during compile time.
+TF 	Types	1 	The static type of the expression (Integer)x is Integer. 	True 	Casting changes the static type during compile time.
+TF 	Types	1 	Subclasses and subtypes are the same thing? 	False 	Can't compare apples and oranges. Subtypes, apply when we have expressions, and when the dynamic type of the RHS  is a subtype of the static type of the LHS.  
+TF 	Types	3 	If class A inherits from abstract class B, and B implements an interface C, then a cast from an object of type A to an object of type C will always succeed.Example: A a; C c = (C) a; 	True 	Since, the type of class C is a subtype of the type of class A. Casting A to C would change the static type of A to te type of C, which is fine.
+TF 	Types	2 	The statement “String s;” implies that the static type of s is String.	True 	Since we are just declaring a variable, the type associated is the static type. The dynamic type would be the type of the object when it is instantiated.
 TF 	Types	3 	If during execution, an expression E is ever evaluated and its value is an object O, then the dynamic type of O is a subtype of the static type of E. 	True 	The best way to understand this using an eg: For example Object a = new Integer (b), should follow the above law to be a valid expression.
-TF 	Types 	2 	If classes Cat and Turtle both implement the interface Pet, we can add objects of type Cat and objects of type Turtle to an ArrayList<Pet>. 	True 	Since they share the same supertype this can be done.	
+TF 	Types	2 	If classes Cat and Turtle both implement the interface Pet, we can add objects of type Cat and objects of type Turtle to an ArrayList<Pet>. 	True 	Since they share the same supertype this can be done.	
 
 
 TF 	OOP Concepts	2	A private field can only be accessed by methods in the same class?	True	This follows from declaring a variable 'private' which is an access modifier, and limits the usage of the variable within the same class. Usually provate fields can be accessed using getter methods instead.

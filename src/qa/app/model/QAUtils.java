@@ -33,14 +33,17 @@ public class QAUtils {
 	
 	while (scanner.hasNextLine()) {
 		String line = scanner.nextLine();
+		if(line.length() == 0)
+			continue;
 		splitArray = line.split("\t");
 
-		type = splitArray[0];
-		topic = new Topic(splitArray[1]);
-		level = Integer.parseInt(splitArray[2]);
-		qText = splitArray[3];
-		qAns = splitArray[4];
-		qExplain = splitArray[5];
+		type = splitArray[0].trim();
+		
+		topic = new Topic(splitArray[1].trim());
+		level = Integer.parseInt(splitArray[2].trim());
+		qText = splitArray[3].trim();
+		qAns = splitArray[4].trim();
+		qExplain = splitArray[5].trim();
 		Question question = null;
 
 		switch (type) {

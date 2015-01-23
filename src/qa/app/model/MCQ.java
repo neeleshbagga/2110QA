@@ -12,7 +12,7 @@ public class MCQ extends Question{
 	private ObservableList<String> answerChoices =  FXCollections.observableArrayList();
 	
 	
-	public MCQ(String q, Topic topic, int lvl, Answer a, ObservableList<String> choices) {
+	public MCQ(String q, String topic, int lvl, Answer a, ObservableList<String> choices) {
 		super(q, topic, lvl);
 	
 		this.type = Type.TF;

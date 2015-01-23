@@ -18,6 +18,7 @@ public class Topic {
 
     private final StringProperty topicName;
    
+   
     /**
      * Default constructor.
      */

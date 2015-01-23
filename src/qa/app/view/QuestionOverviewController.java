@@ -1,6 +1,7 @@
 package qa.app.view;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import org.controlsfx.dialog.Dialogs;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -44,9 +46,12 @@ public class QuestionOverviewController {
 	@FXML
 	private ChoiceBox<String> choiceBox;
 	
+	@FXML
+	private ProgressBar progressBar;
 	 
 	// Questions corresponding to currently selected topic
 	private Iterator<Question> currentQuestions;
+	
 	
 	private ArrayList<Question> allQuestions;
 	
@@ -56,12 +61,18 @@ public class QuestionOverviewController {
 	
 	// the current question that the user sees.
 	private Question currQ;
+	
+	private int count = 0;
+	
+	
+	private HashMap<String, Integer> topicLength = new HashMap<String, Integer>();
 
 	/**
 	 * The constructor. The constructor is called before the initialize()
 	 * method.
 	 */
 	public QuestionOverviewController() {
+		
 	}
 	
 	
@@ -108,14 +119,19 @@ public class QuestionOverviewController {
 		
 		userSolCorrect.setVisible(false);
 		explainArea.setVisible(false);
+		count ++;
+		progressBar.setProgress((double)count/topicLength.get(currQ.getTopic().getTopicName()));
 		
 		if(currentQuestions.hasNext()){
 			currQ = currentQuestions.next();
 			textArea.setText(currQ.getText());
 			updateAnswerChoices(currQ);
+			
+			
 		}
 		else
 		{
+			
 			Dialogs.create()
             .title("Topic Completed")
             .masthead("No more questions")
@@ -131,10 +147,13 @@ public class QuestionOverviewController {
 	 * @param person the person or null
 	 */
 	private void showTopicQuestions(Topic topic) {
+		count = 0;
+		progressBar.setProgress(0);
 		userSolCorrect.setVisible(false);
 		explainArea.setVisible(false);
 		
-	    currentQuestions = QAUtils.filterQuestionsByTopic(allQuestions, topic).iterator();
+		currentQuestions = QAUtils.filterQuestionsByTopic(allQuestions, topic).iterator();
+	    
 	   
 	    if(currentQuestions.hasNext()){
 	    	currQ = currentQuestions.next();
@@ -164,6 +183,8 @@ public class QuestionOverviewController {
 	    // Listen for selection changes and show the person details when changed.
 	    topicTable.getSelectionModel().selectedItemProperty().addListener(
 	            (observable, oldValue, newValue) -> showTopicQuestions(newValue));
+	    
+	    progressBar.setProgress(0);
 	}
 
 	
@@ -177,8 +198,8 @@ public class QuestionOverviewController {
 	
 		// Add observable list data to the table
 		topicTable.setItems(mainApp.getTopics());
-		this.allQuestions = mainApp.getQuestions();
-		
+		allQuestions = mainApp.getQuestions();
+		topicLength = QAUtils.initTopicLengthMap(allQuestions);
 		
 	}
 	

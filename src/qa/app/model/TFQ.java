@@ -11,7 +11,7 @@ public class TFQ extends Question {
 	
 	
 	
-	public TFQ(String q, Topic topic, int lvl, Answer a) {
+	public TFQ(String q, String topic, int lvl, Answer a) {
 		super(q,topic, lvl);
 		this.type = Type.TF;
 		this.answer = a;

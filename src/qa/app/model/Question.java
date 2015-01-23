@@ -17,10 +17,10 @@ public abstract class Question implements Comparable {
 			}
 	
 	
-	public Question(String q, Topic topic, int lvl) {
+	public Question(String q, String topic, int lvl) {
 		text = q;
 		difficulty = lvl;
-		this.topic = topic;
+		this.topic = new Topic(topic);
 	}
 
 	public abstract Answer getAnswer();

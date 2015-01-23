@@ -24,7 +24,7 @@ public class QAUtils {
 	String[] splitArray = null;
 
 	String type;
-	Topic topic;
+	String topic;
 	int level;
 	String qText;
 	String qAns;
@@ -39,7 +39,7 @@ public class QAUtils {
 
 		type = splitArray[0].trim();
 		
-		topic = new Topic(splitArray[1].trim());
+		topic = splitArray[1].trim();
 		level = Integer.parseInt(splitArray[2].trim());
 		qText = splitArray[3].trim();
 		qAns = splitArray[4].trim();
@@ -83,5 +83,20 @@ public class QAUtils {
 		}
 		
 		return filtered;
+	}
+	
+	public static HashMap<String, Integer> initTopicLengthMap(ArrayList<Question> questions){
+		
+		HashMap<String, Integer> result = new HashMap<String, Integer>();
+		for(Question q: questions){
+			String topicName = q.getTopic().getTopicName();
+			if(!result.containsKey(topicName))
+				result.put(topicName, 1);
+			else
+				result.put(topicName, result.get(topicName)+1);
+			
+		}
+		
+		return result;
 	}
 }
